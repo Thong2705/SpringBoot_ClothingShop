@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js}" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js}" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script th:src="@{http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="icon" th:href="@{/image/icon-removebg-preview.png}" type="image/x-icon">
+</head>
+<body> 
+	<!-- NAVBAR -->
+  	<nav class="navbar navbar-light bg-nav">
+      <a class="navbar-brand" th:href="@{/}">
+          <img class="nav__icon" src="./image/brand-removebg-preview.png" alt="">
+      </a>
+      <a class="navbar-brand" th:href="@{/}">
+        <img class="form-img" src="./image/icon_register.jpg" alt="#">
+      </a>
+	</nav>
+    <!-- form register -->
+    <form th:action="@{/process_register}" method="post" th:object=${user}>
+    
+		<div th:if="${param.error}">
+        <div class="alert alert-danger">
+            <span th:text="#{register.error}"></span>
+        </div>
+        </div>
+        <div class="container">
+          <p>Vui lòng điền đầy đủ thông tin.</p>
+          <hr>
+          <label for="name"><b>Họ tên</b></label>
+          <input type="text" placeholder="Nhập họ tên" th:field="*{name}" required minlength="6" maxlength="20"/>
+      
+          <label for="address"><b>Địa chỉ</b></label>
+          <input type="text" placeholder="Nhập địa chỉ" th:field="*{address}" required maxlength="50"/> <!-- Có sự thay đổi độ dài của chuỗi địa chỉ -->
+
+          <label for="number"><b>Số điện thoại</b></label>
+          <input type="text" placeholder="Nhập số điện thoại" th:field="*{phone}" required minlength="10" maxlength="20"/>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Nhập Email" th:field="*{email}" required minlength="6" maxlength="20"/>
+      
+          <label for="psw"><b>Mật khẩu</b></label>
+          <input type="password" placeholder="Nhập mật khẩu" th:field="*{password}" required minlength="6" maxlength="10"/>
+      
+          <label for="psw-repeat"><b>Nhập lại mật khẩu</b></label>
+          <input type="password" placeholder="Nhập lại mật khẩu"required>
+          
+<!-- 			<th:block th:each="role: ${listRoles}"> -->
+<!--             <input type="checkbox" th:field="*{roles}" -->
+<!--                 th:text="${role.name}" th:value="${role.id}" class="m-2" /> -->
+<!--             </th:block> -->
+          
+          <div class="form-agree">
+            <input type="checkbox" name="check" id="check" value="1">
+            <span>Bằng việc đăng ký, bạn đã đồng ý với <a href="">Điều khoản</a> & <a href="">Chính sách bảo mật</a> của YASC!</span>
+          </div>
+          <button type="submit" id="checkBtn" class="registerbtn">Đăng ký</button>
+        </div>
+      
+        <div class="container signin">
+          <p>Bạn đã có tài khoản? <a th:href="@{/user/login}">Đăng nhập</a>.</p>
+        </div>
+        <script type="text/javascript">
+$(document).ready(function () {
+    $('#checkBtn').click(function() {
+      checked = $("input[type=checkbox]:checked").length;
+
+      if(!checked) {
+        alert("Chấp nhận các điều khoản và chính sách bảo mật");
+        return false;
+      }
+
+    });
+});
+
+</script>   
+      </form>
+</body>
+</html>

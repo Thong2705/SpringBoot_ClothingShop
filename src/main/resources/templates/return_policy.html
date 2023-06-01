@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy định đổi trả</title>
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js}" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js}" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{image/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{image/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/js/all.min.js}">
+    <link rel="icon" th:href="@{image/icon-removebg-preview.png}" type="image/x-icon">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light bg-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-mobile" th:href="@{/}">
+                <img class="nav__icon" th:src="@{/image/brand-removebg-preview.png}" alt="">
+            </a>
+            <a class="navbar-brand" th:href="@{/}">
+                <img class="nav__title" th:src="@{/image/title-removebg-preview.png}" alt="">
+            </a>
+            <div class="navbar-control d-flex me-5"></div>
+            <div class="navbar-control d-flex me-5"></div>
+        </div>
+    </nav>
+   
+    <!-- BODY -->
+    <div class="container">
+        <div class="row">
+            
+            <!-- TOOLBAR-->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- MENU-->
+              <div class="container-fluid">
+              <button id="btn-nav" class="btn-nav btn-lg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa-solid fa-bars"></i>        
+              </button>
+              <button id="btn-close" class="btn-lg btn">
+                  <i class="fa-solid fa-bars"></i>        
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul th:replace="/fragments/categories :: categories-index"></ul>
+                
+            </nav>
+
+              <!-- RETURN POLICY CONTENT -->
+              <div class="body_return">
+                <p class="header_return">
+                    CHÍNH SÁCH ĐỔI TRẢ
+                </p>
+                <p class="text_body_return ">
+                    Với mong muốn đem lại những gì tuyệt vời nhất cho các tình yêu của YASC, chúng mình có những chính sách
+                    phù hợp khi các bạn có nhu cầu đổi trả sản phẩm như sau:
+                </p>
+                <p class="header_text_return">I. Điều kiện đổi/trả sản phẩm:</p>
+                <ul class="text_body_return1">
+                    <li>- Sản phẩm không trùng khớp về màu sắc, mẫu mã, size theo đơn hàng.</li>
+                    <li>- Lỗi sản phẩm do nhà sản xuất</li>
+                    <li>- Sản phẩm đổi hàng phải còn mới, nguyên vẹn, không bị rách hoặc nứt, không có dấu hiệu đã qua giặt tẩy và đã qua sử dụng.</li>
+                    <li>- Sản phẩm phải còn đầy đủ tem, nhãn mác, thẻ bảo hành và hoá đơn mua hàng.</li>
+                    <li>- Sản phẩm đổi hàng còn trong thời hạn cho phép đổi trả.</li>
+                    <li>- Áp dụng đối với sản phẩm mua hàng online website của YASC và trực tiếp tại cửa hàng YASC, chúng mình không hỗ trợ cho những đơn hàng mua tại địa điểm khác.</li>
+                    <li>- Không áp dụng đối với sản phẩm trong chương trình khuyến mãi khác và sản phẩm thanh lý.</li>
+                    <li>- Các bạn chỉ có thể trả sản phẩm với điều kiện YASC không có sản phẩm cùng loại khác (màu sắc, mẫu mã, kích thước) để thay thế.</li>
+                </ul>
+                <p class="header_text_return">II. Thời hạn đổi/trả sản phẩm:</p>
+                <ul class="text_body_return1">
+                    <li>- <b>Thời hạn đổi sản phẩm:</b> 10 ngày đối với những bạn mua online và 7 ngày đối với những bạn mua trực tiếp tại cửa hàng kể từ ngày các bạn nhận được hàng.</li>
+                    <li>- <b>Thời hạn trả sản phẩm:</b> 07 ngày đối với những bạn mua online và 3 ngày đối với những bạn mua trực tiếp tại cửa hàng kể từ ngày các bạn nhận được hàng.</li>
+                </ul>
+                <p class="header_text_return">III. Thời hạn hoàn trả sản phẩm:</p>
+                <ul class="text_body_return1">
+                    <li>- <b>Đối với những bạn mua hàng online:</b> Ngay sau khi nhận được sản phẩm đổi/ trả của các bạn, chúng mình sẽ tiến hành đánh giá sản phẩm và thông báo kết quả 
+                        và phương án giải quyết đổi/trả đến các bạn trong vòng 3 đến 5 ngày</li>
+                    <li>- <b>Đối với những bạn mua hàng trực tiếp tại cửa hàng YASC:</b> Các bạn đem sản phẩm cần đổi/ trả đến trực tiếp tại cửa hàng kèm hóa đơn, nhân viên cửa hàng 
+                        sẽ kiểm tra tình trạng sản phẩm và đưa ra hướng giải quyết ngay tại của hàng. Nhân viên tại cửa hàng sẽ tư vấn cụ thể để các bạn chọn lựa phương án tốt nhất.</li>
+                </ul>
+                <p class="header_text_return">IV. Hình thức đổi/trả sản phẩm:</p>
+                <ul class="text_body_return1">
+                    <li>- Sản phẩm chỉ được đổi trả <b>1 LẦN DUY NHẤT.</b></li>
+                    <li>- Các bạn vui lòng đến trực tiếp cửa hàng YASC để thực hiện đổi trả. Nếu các bạn ở xa không đến trực tiếp cửa hàng được, hãy gọi đến hotline 0608.108.989 để được tư vấn
+                        hoặc gửi tin nhắn qua mail được hiển thị bên dưới để được hỗ trợ. Sau khi nhận được phản hồi đồng ý từ YASC, bạn vui lòng đóng gói sản phẩm kèm đầy đủ hóa đơn gửi về địa 
+                        chỉ <b>19 Nguyễn Hữu Thọ, phường Tân Phong, Quận 7, TPHCM</b> để tiến hành đổi trả sản phẩm nhanh nhất có thể nhé.
+                    </li> 
+                </ul>
+                <p class="header_text_return">V. Hình thức hoàn phí:</p>
+                <ul class="text_body_return1">
+                    <li>- <b>Với trường hợp đổi sản phẩm:</b> Nếu các bạn có nhu cầu đổi sản phẩm khác có giá cao hơn sản phẩm đổi thì các bạn phải bù thêm tiền và nếu thấp hơn sẽ không 
+                        được hoàn trả lại tiền chênh lệch.</li>
+                    <li>- <b>Với trường hợp mua hàng online: </b>
+                        <ul>
+                            <li>YASC sẽ chịu 100% phí vận chuyển cho khách hàng nếu sản phẩm đổi đáp ứng đầy đủ điều kiện đã nêu ở Mục I ( điều kiện đổi/ trả sản phẩm).</li>
+                            <li>Trường hợp các bạn đã thanh toán tiền trực tuyến cho sản phẩm đầu tiên, sẽ thanh toán thêm phần tiền chênh lệch cho sản phẩm được đổi (nếu có) bằng chuyển khoản.</li>
+                            <li>Thời gian nhận hàng mới chậm nhất là 7 ngày kể từ ngày YASC nhận được sản phẩm cần đổi.</li>
+                        </ul>
+                    </li>
+                    <li>- <b>Với trường hợp mua hàng trực tiếp tại cửa hàng: </b>
+                        <ul>
+                            <li>Sản phẩm không bị lỗi mà các bạn vẫn yêu cầu đổi, các bạn sẽ bị mất phí 10% trên tổng hóa đơn thanh toán.</li>
+                            <li>Các bạn đã thanh toán tiền cho sản phẩm đầu tiên, sẽ thanh toán thêm phần tiền chênh lệch cho sản phẩm được đổi ( nếu có ) bằng tiền mặt.</li>
+                        </ul>
+                    </li>
+                    <li>- <b>Với trường hợp hoàn trả sản phẩm: </b>
+                        <ul>
+                            <li>Sẽ hoàn tiền 100% nếu YASC không có sản phẩm khác thay thế và sản phẩm phải đảm bảo đủ điều kiện đã nêu ở Mục I.</li>
+                            <li>YASC sẽ chịu tất cả mọi khoản chi phí vận chuyển trong quá trình trả sản phẩm.</li>
+                            <li>Trường hợp các bạn đã thanh toán tiền online sẽ được hoàn tiền chậm nhất 30 ngày kể từ ngày YASC nhận được sản phẩm trả.</li>
+                        </ul>
+                    </li>
+                    <li class="text_note_return"><b>Lưu ý:</b> HÃY QUAY VIDEO KHI UNBOX và chụp ảnh sản phẩm trước khi đổi/ trả hàng hóa, việc lưu giữ sản phẩm sẽ giúp các bạn làm bằng chứng nếu có những vấn đề phát sinh trong quá trình đổi trả.</li>
+                </ul>
+              </div>
+
+        </div>
+    </div>
+</body>
+<!--FOOTER-->
+<footer>
+  <div class="footer__title">
+    <div class = "text_footer">
+      <ul><b>YASC! - THỜI TRANG THẾ HỆ GENZ </b></ul>
+      <ul>Cửa hàng thời trang bắt kịp xu hướng của giới trẻ</ul>
+      <ul>Địa chỉ: 19 Nguyễn Hữu Thọ, phường Tân Phong, Quận 7, TPHCM</ul>
+      <ul>Liên hệ: 0332346679 - 0357999924</ul>
+      <ul>Email: yascib._.tv@gmail.com</ul>
+    </div>
+    <div class = "text_footer1">
+      <ul>
+        <a class="text_footer_link" th:href="@{/delivery_policy}" alt="#">Chính sách giao hàng</a>
+      </ul>
+      <ul>
+        <a class="text_footer_link" th:href="@{/return_policy}" alt="#">Quy định đổi trả</a>
+      </ul>
+      <ul>
+        <a class="text_footer_link" th:href="@{/membership}" alt="#">Khách hàng thân thiết</a>
+      </ul>
+    </div>
+    <div class = "text_footer2">
+      <ul>
+        <a class="inf_link" alt="#" th:href="@{/information}">Giới thiệu</a>
+      </ul>
+      <ul>
+        <a class="cv_link" alt="#" th:href="@{/recruit}">Tuyển dụng</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!--JAVA SCRIPT-->
+<script>
+  var btnNav = document.getElementById('btn-nav');
+  var btnClose = document.getElementById('btn-close');
+        btnNav.onclick = function(){
+          this.style.display = "none";
+          document.getElementById("btn-close").style.display = "block";
+          document.getElementById("navbarSupportedContent").style.display = "block";
+
+        }
+        btnClose.onclick = function(){
+          document.getElementById("navbarSupportedContent").style.display = "none";
+          document.getElementById("btn-nav").style.display = "block";
+          document.getElementById("btn-close").style.display = "none";
+        }
+</script>
+</html>

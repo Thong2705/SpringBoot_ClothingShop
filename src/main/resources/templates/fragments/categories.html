@@ -1,0 +1,27 @@
+<div th:fragment="categories-user">
+	<nav class="navbar navbar-expand-lg navbar-light bg-custom" >
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		        <li class="nav-item1">
+		            <a href="/category/all" class="nav-link">Tất cả sản phẩm</a>
+		        </li>
+		        <li class="nav-item1" th:each="category: ${ccategories}">
+		            <a class="nav-link" th:href="@{'/category/' + ${category.slug}}" th:text="${category.name}"></a>
+		        </li>
+		
+		</ul>
+	</nav>
+	<div th:replace="/fragments/cart_partial"></div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-custom" th:fragment="categories-index">
+	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item1">
+	            <a href="/category/all" class="nav-link">Sản phẩm mới</a>
+	        </li>
+	        <li class="nav-item1" th:each="category: ${ccategories}">
+	            <a class="nav-link" th:href="@{'/category/' + ${category.slug}}" th:text="${category.name}"></a>
+	        </li>
+	
+<!-- 	    <div th:replace="/fragments/cart_partial"></div> -->
+	</ul>
+</nav>

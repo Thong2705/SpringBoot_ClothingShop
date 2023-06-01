@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+   
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+	<!-- NAVBAR -->
+    <nav class="navbar navbar-light bg-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-mobile" th:href="@{/user/store}">
+                <img class="nav__icon" th:src="@{/image/brand-removebg-preview.png}" alt="">
+            </a>
+            <a class="navbar-brand" th:href="@{/user/store}">
+                <img class="nav__title" th:src="@{/image/title-removebg-preview.png}" alt="">
+            </a>
+            <div class="navbar-control d-flex me-5"></div>
+            <div class="navbar-control d-flex me-5"></div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div th:replace="/fragments/categories :: categories-user"></div>
+            <div class="col"></div>
+            <div class="col-7">
+                <h2 class="display-4">Xem trước giỏ hàng</h2>
+                <table class="table">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Số lượng</th>
+                        <th>Giá tiền</th>
+                        <th>Tổng cộng</th>
+                    </tr>
+                    <tr th:each="el: ${cart}">
+                        <td th:text="${el.value.name}"></td>
+                        <td>
+                            <img style="width: 100px;" th:src="@{'/media/' + ${el.value.image}}" alt="">
+                        </td>
+                        <td>
+                            <span th:text="${el.value.quantity}"></span>
+                            <a th:href="@{'/user/cart/add/' + ${el.value.id} + '?cartPage=true'}"
+                                class="btn btn-success btn-sm">+</a>
+                            <a th:href="@{'/cart/subtract/' + ${el.value.id}}" class="btn btn-primary btn-sm">-</a>
+                            <a th:href="@{'/cart/remove/' + ${el.value.id}}" class="btn btn-danger btn-sm">Xoá</a>
+                        </td>
+                        <td th:text="${el.value.price} +'đ'"></td>
+                        <td th:with="formattedTotal=${el.value.price} * ${el.value.quantity}"
+                            th:text="${#numbers.formatDecimal(formattedTotal, 0, 'COMMA', 2, 'POINT')} +'đ'"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right"><b>Tổng tiền tất cả</b></td>
+                        <td colspan="1" th:text="${#numbers.formatDecimal(ctotal, 0, 'COMMA', 2, 'POINT')} + 'đ'"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/cart/clear" class="btn btn-danger">Xoá giỏ hàng</a>
+                        </td>
+                        <td colspan="4" style="text-align:right;">
+                            <a href="/cart/clear" class="btn btn-success checkout">Thanh toán</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="paypaldiv">
+            <form id="paypalform" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_cart">
+                <input type="hidden" name="upload" value="1">
+                <input type="hidden" name="business" value="jultranet-facilitator@gmail.com">
+
+                <th:block th:each="el, iter : ${cart}">
+                    <input type="hidden" th:name="'item_name_' + ${iter.count}" th:value="${el.value.name}">
+                    <input type="hidden" th:name="'amount_' + ${iter.count}" th:value="${el.value.price}">
+                    <input type="hidden" th:name="'quantity_' + ${iter.count}" th:value="${el.value.quantity}">
+
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit"
+                        alt="Make payments with PayPal - it's fast, free and secure!">
+                </th:block>
+            </form>
+        </div>
+        
+       <script type="text/javascript">
+			    var elems = document.getElementsByClassName('checkout');
+			    var confirmIt = function (e) {
+			        if (!confirm('Are you sure?')) e.preventDefault();
+			    };
+			    for (var i = 0, l = elems.length; i < l; i++) {
+			        elems[i].addEventListener('click', confirmIt, false);
+			    }
+</script>
+</body>
+
+</html>

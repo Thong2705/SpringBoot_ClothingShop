@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light bg-nav" th:fragment="header">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-mobile" th:href="@{/user/store}">
+                <img class="nav__icon" th:src="@{/image/brand-removebg-preview.png}" alt="">
+            </a>
+            <a class="navbar-brand" th:href="@{/user/store}">
+                <img class="nav__title" th:src="@{/image/title-removebg-preview.png}" alt="">
+            </a>
+            <div class="navbar-control d-flex me-5">
+                <a class="nav__login" href="#">Chào mừng <b><span th:text ="${#request.userPrincipal.principal.fullName}"></span></b></a>
+                <div class="box"></div>
+	                <form th:action="@{/user/logout}" method="post">
+            			<input class="nav__register" type="submit" value="Đăng Xuất" />
+        			</form>
+                <a class="nav__earth" href=""><i class="fa-solid fa-earth-americas"></i></a>
+            </div>
+        </div>
+    </nav>

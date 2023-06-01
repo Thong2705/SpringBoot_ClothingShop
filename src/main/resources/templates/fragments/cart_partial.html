@@ -1,0 +1,16 @@
+
+
+<div class="cart_warp mt-3" th:fragment="cart_partial" th:if="${notCartViewPage == null}">
+    <div class="cart cartActive" th:if="${cartActive}">
+        <p>Bạn có <span th:text="${csize}"></span> sản phẩm trong giỏ hàng.</p>
+        <p>Tổng cộng có <span th:text="${#numbers.formatDecimal(ctotal, 0, 'COMMA', 2, 'POINT')}"></span>đ trong giỏ hàng cần thanh toán</p>
+        <p>
+            <a href="/cart/view" class="btn btn-success">Xem giỏ hàng</a>
+            <a href="/cart/clear" class="btn btn-danger float-right">Xoá giỏ hàng</a>
+        </p>
+    </div>
+
+    <div class="cart cartActive" th:unless="${cartActive}">
+        <p>Giỏ hàng đang còn trống</p>
+    </div>
+</div>
