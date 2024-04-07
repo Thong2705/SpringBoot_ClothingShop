@@ -39,13 +39,13 @@ The objective of the project is to create a user-friendly, flexible, and easily 
 
 ## System Architecture
 
-### System Architecture Description:
+#### System Architecture Description:
 - Frontend (Thymeleaf Templates): The user interface component, displaying product information and checkout interface.
 - Controller Layer: Handles requests from users and routes them to the corresponding processing methods.
 - Service Layer: Contains business logic and communicates with Repositories to access and manipulate data.
 - Repository Layer: Performs data access and manipulation from the database.
 - Database (MySQL): Stores product data, order information, and user data.
 
-### System Architecture Diagram:
+#### System Architecture Diagram:
 ![Architecture](images/Architecture.png)
 
