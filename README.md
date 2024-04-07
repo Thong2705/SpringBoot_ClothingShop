@@ -1,5 +1,7 @@
 # Clothing E-commerce Website
 
+Youtube link: https://youtu.be/ktk3WLnKCH0
+
 ## Introduction
 
 This project is an e-commerce website for selling clothing built using Spring Boot, Spring Security, Thymeleaf, and utilizing MySQL to manage data. Lombok is used to reduce boilerplate code and increase source code simplicity.
